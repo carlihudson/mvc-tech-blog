@@ -56,6 +56,19 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// create new comment
+router.post('/', async (req, res) => {
+    try {
+   const newComment = await Comment.create(req.body);
+        if(!newComment) {
+            res.status(404).json({ message: 'Please enter comment info'});
+            return;
+        }
+        res.status(200).json(newComment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 module.exports = router;
