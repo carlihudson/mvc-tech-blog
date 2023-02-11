@@ -75,24 +75,42 @@ router.post('/', async (req, res) => {
 });
 
 // update a user by id
-// router.put('/:id', async (req, res) => {
-//     try {
-//         const userToUpdate = await user.update(req.body, {
-//             individualHooks: true,
-//             where: {
-//                 id: req.params.id,
-//             },
-//         });
-//         if(!userToUpdate[0]) {
-//             res.status(400).json({ message: 'No user with this ID!' });
-//             return;
-//         }
-//         res.status(200).json(userToUpdate); 
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+router.put('/:id', async (req, res) => {
+    try {
+        const userToUpdate = await User.update(req.body, {
+            individualHooks: true,
+            where: {
+                id: req.params.id,
+            },
+        });
+        if(!userToUpdate) {
+            res.status(400).json({ message: 'No user with this ID!' });
+            return;
+        }
+        res.status(200).json(userToUpdate); 
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
+// delete user by id
+router.delete('/:id', async (req, res) => {
+    try {
+        const userToDelete = await User.findByPk(req.params.id) 
+        User.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });    
+        if(!userToDelete) {
+            res.status(400).json({ message: 'No user with this ID!' });
+            return;
+        }
+        res.status(200).json(userToDelete); 
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 module.exports = router;
