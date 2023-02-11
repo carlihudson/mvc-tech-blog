@@ -70,5 +70,23 @@ router.post('/', async (req, res) => {
     }
 });
 
+// update a comment by id
+router.put('/:id', async (req, res) => {
+    try {
+        const commentToUpdate = await Comment.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        });
+        if(!commentToUpdate[0]) {
+            res.status(400).json({ message: 'No comment with this ID!' });
+            return;
+        }
+        res.status(200).json(commentToUpdate); 
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
