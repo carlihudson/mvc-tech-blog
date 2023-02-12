@@ -1,11 +1,10 @@
-const sequelize = require('../config/connection');
 const router = require('express').Router();
-const { Post, Comment } = require('../models');
+const { Post, Comment, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        await Post.findAll({
+        const dbPostData = await Post.findAll({
             attributes: ['id', 'title', 'timestamp', 'post_content'],
             include: [
                 {
@@ -21,11 +20,10 @@ router.get('/', async (req, res) => {
                     }
                 }
             ]
-        })
-        .then(dbPostData => {
+        });
             const posts = dbPostData.map(post => post.get({ plain: true }));
             res.render('homepage', { posts, logged_in: req.session.logged_in });
-        })
+      
     } catch (err) {
         res.status(500).json(err);
     }
