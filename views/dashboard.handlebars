@@ -1,0 +1,15 @@
+<h3>Welcome, {{user.username}}!</h3>
+<h4>Your Posts</h4>
+{{#if posts.length}}
+    {{each posts as |post|}}
+    <div class="card">
+  <div class="card-header">
+    {{post.title}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{post.post_content}}.</p>
+    <a href="#" class="btn btn-primary">Comments</a>
+  </div>
+</div>
+{{/each}}
+{{/if}}
