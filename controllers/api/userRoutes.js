@@ -60,10 +60,10 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
    const newUser = await User.create(req.body);
-    // req.session.save(() => {
-    //     req.session.user_id = newUser.id;
-    //     req.session.logged_in = true;
-    // });
+    req.session.save(() => {
+        req.session.user_id = newUser.id;
+        req.session.logged_in = true;
+    });
         if(!newUser) {
             res.status(404).json({ message: 'Please enter user info'});
             return;
