@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 // route to homepage
 router.get('/', async (req, res) => {
@@ -41,20 +41,34 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// route to signin page
+// route to signup page
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
 // route to dashboard
-router.get('/dashboard', (req, res) => {
-    // If the user is not logged in, redirect the request to the login page
-    if (!req.session.logged_in) {
-      res.redirect('/login');
-      return;
-    }
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Post }, {model: Comment}],
+        });
 
-    res.render('dashboard');
+        const user = userData.get({ plain: true });
+
+    // If the user is not logged in, redirect the request to the login page
+        if (!req.session.logged_in) {
+            res.redirect('/login');
+            return;
+          }
+
+        res.render('dashboard', {
+            ...user, 
+            logged_in: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
   
     
