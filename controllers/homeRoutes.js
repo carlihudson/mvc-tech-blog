@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
             ]
         });
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('homepage', { posts });
+            res.render('homepage', { posts, logged_in: req.session.logged_in });
       
     } catch (err) {
         res.status(500).json(err);
@@ -53,6 +53,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             attributes: { exclude: ['password'] },
             include: [{ model: Post }, {model: Comment}],
         });
+        console.log(userData)
 
         const user = userData.get({ plain: true });
 

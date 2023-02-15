@@ -21,7 +21,7 @@ document
 
 
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.assign('/dashboard');
       } else {
         alert(response.statusText);
       }
