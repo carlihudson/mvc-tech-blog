@@ -62,7 +62,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
             res.redirect('/login');
             return;
           }
-
+          console.log(user)
         res.render('dashboard', {
             ...user, 
             logged_in: true
