@@ -149,9 +149,11 @@ router.post('/login', async (req, res) => {
 
   // log out user
   router.post('/logout', (req, res) => {
+    console.log("logging out")
     if (req.session.logged_in) {
       req.session.destroy(() => {
-        req.session.logged_in = false;
+        console.log("destroying session")
+        // req.session.logged_in = false;
         res.status(204).end();
       });
     } else {
