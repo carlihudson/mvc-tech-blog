@@ -59,7 +59,11 @@ router.get('/:id', async (req, res) => {
 // create new post
 router.post('/', async (req, res) => {
     try {
-   const newPost = await Post.create(req.body);
+   const newPost = await Post.create({
+    ...req.body,
+    user_id: req.session.user_id,
+    timestamp: Date.now()
+    })
         if(!newPost) {
             res.status(404).json({ message: 'Please enter post info'});
             return;
