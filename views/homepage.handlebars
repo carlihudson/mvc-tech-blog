@@ -3,11 +3,11 @@
   <div class="card-header">
    {{post.title}}
     <br>
-    - {{user.username}}
+    - {{user.username}} at {{post.timestamp}}
   </div>
   <div class="card-body">
     <p class="card-text">{{post.post_content}}.</p>
-    <a href="#" class="btn btn-primary">Comments</a>
+    <a href="/singlepost" class="btn btn-primary" id="view-post" >View Post</a>
   </div>
 </div>
 {{/each}}

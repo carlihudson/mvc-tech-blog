@@ -71,6 +71,36 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// route to single post
+router.get('/posts/:id', async (req, res) => {
+    try {
+        const singlePostData = await Post.findbyPK(req.params.id, {
+            attributes: ['id', 'title', 'timestamp', 'post_content'],
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }, 
+                {
+                    model: Comment, 
+                    attributes: ['timestamp', 'comment_content'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                }
+            ]
+        });
+            const singlePost = singlePostData.map(post => post.get({ plain: true }));
+            res.render('singlepost', { singlePost, logged_in: req.session.logged_in });
+      
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
   
     
 
