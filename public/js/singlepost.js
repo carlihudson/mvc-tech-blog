@@ -19,7 +19,7 @@ document
 
 
       if (response.ok) {
-        document.location.replace('/post/:id');
+        document.location.replace('/posts/:id');
       } else {
         alert(response.statusText);
       }

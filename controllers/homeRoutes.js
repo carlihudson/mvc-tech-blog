@@ -92,6 +92,7 @@ router.get('/posts/:id', async (req, res) => {
                 }
             ]
         });
+       
             const singlePost = singlePostData.map(post => post.get({ plain: true }));
     
             console.log(singlePost)
@@ -103,7 +104,5 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 
-  
-    
 
 module.exports = router;
