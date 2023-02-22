@@ -75,7 +75,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 // route to single post
 router.get('/posts/:id', async (req, res) => {
     try {
-        const singlePostData = await Post.findbyPK(req.params.id, {
+        const singlePostData = await Post.findByPk(req.params.id, {
             attributes: ['id', 'title', 'timestamp', 'post_content'],
             include: [
                 {
