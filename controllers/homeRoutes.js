@@ -92,8 +92,8 @@ router.get('/posts/:id', async (req, res) => {
                 }
             ]
         });
-       
-            const singlePost = singlePostData.map(post => post.get({ plain: true }));
+     
+            const singlePost = singlePostData.get({ plain: true });
     
             console.log(singlePost)
             res.render('singlepost', { singlePost, logged_in: req.session.logged_in });

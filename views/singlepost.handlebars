@@ -14,10 +14,17 @@
   </div>
 </div>
 {{/each}}
-    <a href="#" class="btn btn-primary">Add a Comment</a>
+<form>
+   <div class="form-group">
+    {{!-- <label for="write-new-post">Write a New Post</label> --}}
+    <textarea class="form-control" id="new-comment" placeholder="Write a Comment" rows="3"></textarea>
+  </div>
+</form>
+    <a href="#" class="btn btn-primary" id="add-comment">Add a Comment</a>
   </div>
 </div>
 {{/each}}
 {{/if}}
 
 <script src="../js/singlepost.js"></script>
+<script src="../js/addcomment.js"></script>
