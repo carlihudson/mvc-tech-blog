@@ -5,7 +5,6 @@ document
 
     console.log(event);
 
-
     const viewPost = document.querySelector('#view-post')
 
     if (viewPost) {
@@ -14,9 +13,6 @@ document
         body: JSON.stringify({ viewPost }),
         headers: { 'Content-Type': 'application/json' },
       });
-
-     
-
 
       if (response.ok) {
         document.location.replace('/posts/:id');

@@ -7,13 +7,14 @@
    {{#each post.comments as |comment|}}
 <div class="card">
   <div class="card-body">
+    <p class ="card-text" id="comment-user">{{comment.user.username}} at {{comment.timestamp}}</p>
     <p class="card-text">{{comment.comment_content}}</p>
   </div>
 </div>
 {{/each}}
 <form>
    <div class="form-group">
-    {{!-- <label for="write-new-post">Write a New Post</label> --}}
+    <input type="hidden" id="post-id" value="{{post.id}}" />
     <textarea class="form-control" id="new-comment" placeholder="Write a Comment" rows="3"></textarea>
   </div>
 </form>
@@ -21,6 +22,4 @@
   </div>
 </div>
 
-
-<script src="../js/singlepost.js"></script>
 <script src="../js/addcomment.js"></script>

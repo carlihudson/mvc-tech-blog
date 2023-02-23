@@ -58,8 +58,15 @@ router.get('/:id', async (req, res) => {
 
 // create new comment
 router.post('/', async (req, res) => {
+    console.log('user id:');
+    console.log(req.session.user_id)
     try {
-   const newComment = await Comment.create(req.body);
+   const newComment = await Comment.create({
+    ...req.body,
+    post_id: req.body.post_id,
+    user_id: req.session.user_id,
+    timestamp: Date.now()
+    });
         if(!newComment) {
             res.status(404).json({ message: 'Please enter comment info'});
             return;
