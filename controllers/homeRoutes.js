@@ -96,7 +96,7 @@ router.get('/posts/:id', async (req, res) => {
             const singlePost = singlePostData.get({ plain: true });
     
             console.log(singlePost)
-            res.render('singlepost', { singlePost, logged_in: req.session.logged_in });
+            res.render('singlepost', { post: singlePost, logged_in: req.session.logged_in });
       
     } catch (err) {
         res.status(500).json(err);
