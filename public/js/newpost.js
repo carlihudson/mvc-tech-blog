@@ -19,6 +19,7 @@ document
 
       if (response.ok) {
         console.log("new post posted!")
+        document.location.assign('/dashboard');
       } else {
         alert(response.statusText);
       }

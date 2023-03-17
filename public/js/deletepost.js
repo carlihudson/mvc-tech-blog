@@ -1,19 +1,23 @@
 document
-  .querySelector('#view-post')
+  .querySelector('#delete-post')
   .addEventListener('click', async (event) => {
     event.preventDefault();
 
     console.log(event);
 
-    if (viewPost) {
+    const postToDelete = document.querySelector("")
+   
+    if (postToDelete) {
       const response = await fetch('/api/posts/:id', {
-        method: 'POST',
-        body: JSON.stringify({ viewPost }),
+        method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
       });
 
+      console.log(response)
+
       if (response.ok) {
-        document.location.replace('/posts/:id');
+        console.log("post deleted!")
+        document.location.assign('/dashboard');
       } else {
         alert(response.statusText);
       }
