@@ -26,3 +26,23 @@ document
   }
   document.location.replace('/dashboard');
 });
+
+document
+.querySelector('#delete-button')
+.addEventListener('click', async (event) => {
+    event.preventDefault();  
+
+    const postId = document.querySelector('#post-id').getAttribute('value');
+    
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: 'DELETE',
+      });
+      console.log(response)
+  
+      if (response.ok) {
+        console.log("post deleted!")
+        document.location.assign('/dashboard');
+      } else {
+        alert(response.statusText);
+      }
+    });

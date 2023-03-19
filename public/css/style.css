@@ -1,3 +1,81 @@
-.button {
-    color: #171A21;
+:root {
+  --primary: #DDEAF8;
+  --secondary: #617073;
+  --tertiary: #AFB3F7;
+  --light-dark: #92BCEA;
+  --dark: #171A21;
+  --border-radius: 0.3rem;
+}
+
+body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    color: var(--dark);
+    line-height: 1.5;
+    font-size: large;
+    font-family: 'Urbanist', sans-serif;  
+}
+
+.btn {
+    color: var(--dark);
+    background-color: var(--tertiary);
+    border: none;
+    outline: none;
+}
+
+.btn:hover {
+    background-color: var(--dark);
+}
+
+#post-button {
+    margin-bottom: 3rem;
+
+}
+
+.card {
+    margin-bottom: 3rem;
+}
+
+.card-header {
+    background-color: #7A93AC;
+}
+
+.card-body {
+    background-color: #BBD5F1;
+}
+
+input {
+    margin-bottom: 1rem;
+}
+
+.main-card {
+    background-color: #7A93AC;
+}
+
+.main-card-text {
+    font-size: larger;
+}
+
+#comment-user {
+    font-weight: bolder;
+}
+
+.post-title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.single-post-title {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#welcome {
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
