@@ -20,9 +20,9 @@ document
       console.log(response)
 
       if (response.ok) {
-        console.log("new post posted!")
+        document.location.reload();
       } else {
-        alert(response.statusText);
+        alert('You must be logged in to leave a comment!');
       }
     }
   });

@@ -3,7 +3,7 @@
   <div class="card-header">
    {{post.title}}
     <br>
-    - {{user.username}} at {{post.timestamp}}
+    - {{user.username}} at {{format_date post.timestamp}}
   </div>
   <div class="card-body">
     <p class="card-text">{{post.post_content}}.</p>

@@ -1,10 +1,9 @@
-const postId = document.querySelector('input[name="post-id"]').value;
-
 document
 .querySelector('#update-button')
 .addEventListener('click', async (event) => {
   event.preventDefault();
 
+  const postId = document.querySelector('#post-id').getAttribute('value');
   const updatedPostTitle = document.querySelector('#post-title').value.trim();
   const updatedPostContent = document.querySelector('#post-content').value.trim();
   console.log('initiating edit')
