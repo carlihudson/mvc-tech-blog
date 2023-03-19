@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Post, User } = require('../models');
 
-// route to single post
+// route to update post
 router.get('/edit/:id', async (req, res) => {
     try {
         const singlePostData = await Post.findByPk(req.params.id, {
@@ -17,7 +16,7 @@ router.get('/edit/:id', async (req, res) => {
      
             const singlePost = singlePostData.get({ plain: true });
           
-            res.render('singlepost', { post: singlePost, logged_in: req.session.logged_in });
+            res.render('editpost', { post: singlePost, logged_in: req.session.logged_in });
       
     } catch (err) {
         res.status(500).json(err);

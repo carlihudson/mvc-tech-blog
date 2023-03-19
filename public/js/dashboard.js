@@ -3,8 +3,6 @@ document
   .addEventListener('click', async (event) => {
     event.preventDefault();
 
-    console.log(event);
-
     const newPostTitle = document.querySelector('#new-post-title').value.trim();
     const newPost = document.querySelector('#new-post').value.trim();
    
@@ -26,24 +24,9 @@ document
     }
   });
 
-  document
-  .querySelector('#edit-post')
-  .addEventListener('click', async (event) => {
-    event.preventDefault();
 
-    const viewPost = document.querySelector('#edit-post');
 
-    if (viewPost) {
-      const response = await fetch('/api/posts/:id', {
-        method: 'POST',
-        body: JSON.stringify({ viewPost }),
-        headers: { 'Content-Type': 'application/json' },
-      });
 
-      if (response.ok) {
-        document.location.replace('/dashboard/edit/:id');
-      } else {
-        alert(response.statusText);
-      }
-    }
-  });
+
+
+
