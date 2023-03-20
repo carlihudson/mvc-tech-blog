@@ -3,7 +3,7 @@
   [![ISC license](https://img.shields.io/badge/License-ISC-blue.svg)](https://choosealicense.com/licenses/isc/)
         
   ## Description
-    Week 14's assignment was to build a CMS-style blog completely from scratch, following the Model-View-Controller paradigm. Users must be able to log in and out, create, edit, and delete posts, as well as comment on others' posts. This project was done primarily with sequelize, express, and handlebars.js.
+ Week 14's assignment was to build a CMS-style blog completely from scratch, following the Model-View-Controller paradigm. Users must be able to log in and out, create, edit, and delete posts, as well as comment on others' posts. This project was done primarily with sequelize, express, and handlebars.js.
   
   ## Table of Contents
   - [Usage](#usage)
@@ -38,7 +38,7 @@
   ![Alt text](./public/img/logout.png)
 
   ## Link
-  [Click this link](https://drive.google.com/file/d/1RQ0Wfp_uPMvIQ0u-MEVPCw8VSsTRMeYf/view) see a video demonstration of this application in action.
+  You can visit this application at 
   
 
   ## License
