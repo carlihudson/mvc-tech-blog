@@ -4,9 +4,9 @@
   "description": "Module 14 Challenge",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node seeds/index.js",
-    "heroku-postbuild": "npm run build"
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
