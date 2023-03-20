@@ -38,7 +38,7 @@
   ![Alt text](./public/img/logout.png)
 
   ## Link
-  You can visit this application at https://model-view-controller-blog.herokuapp.com/
+  You can visit this application at [https://model-view-controller-blog.herokuapp.com/](https://model-view-controller-blog.herokuapp.com/)
   
 
   ## License
